@@ -55,7 +55,7 @@ function getInfo(vercelRes) {
     实际使用：${reserve - cancel} 课次
         `
 
-            // vercelRes.status(200).send(summary);
+            vercelRes.status(200).send(summary);
 
             console.log(summary)
         })

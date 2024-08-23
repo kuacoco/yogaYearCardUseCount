@@ -46,18 +46,22 @@ function getInfo(vercelRes) {
             const date1 = moment(firstDay)
             const date2 = moment()
             const daysDifference = date2.diff(date1, 'days')
-
             const summary = `
-    激活时间：${firstDay}
-    年卡已用：${daysDifference + 2} 天
-    预定次数：${reserve} 课次
-    取消次数：${cancel} 课次
-    实际使用：${reserve - cancel} 课次
-        `
-
+            <p>激活时间：${firstDay}</p>
+            <p>年卡已用：${daysDifference + 2} 天</p>
+            <p>预定次数：${reserve} 课次</p>
+            <p>取消次数：${cancel} 课次</p>
+            <p>实际使用：${reserve - cancel} 课次</p>
+            `
             vercelRes.status(200).send(summary);
 
-            console.log(summary)
+            //         const summary = `
+            // 激活时间：${firstDay}
+            // 年卡已用：${daysDifference + 2} 天
+            // 预定次数：${reserve} 课次
+            // 取消次数：${cancel} 课次
+            // 实际使用：${reserve - cancel} 课次
+            //         console.log(summary)
         })
     })
 

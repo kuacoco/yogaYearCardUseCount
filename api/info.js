@@ -47,11 +47,19 @@ function getInfo(vercelRes) {
             const date2 = moment()
             const daysDifference = date2.diff(date1, 'days')
             const summary = `
+            <div style="padding: 40px;">
             <p>激活时间：${firstDay}</p>
             <p>年卡已用：${daysDifference + 2} 天</p>
             <p>预定次数：${reserve} 课次</p>
             <p>取消次数：${cancel} 课次</p>
             <p>实际使用：${reserve - cancel} 课次</p>
+            </div>
+            <script>
+            const meta = document.createElement('meta')
+            meta.name="viewport"
+            meta.content="width=device-width, initial-scale=1.0"
+            document.head.appendChild(meta)
+            </script>
             `
             vercelRes.status(200).send(summary);
 

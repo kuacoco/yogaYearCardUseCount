@@ -95,7 +95,7 @@ export default function handler(vercelReq, vercelRes) {
         }
         let summary = resArray.map(res => {
             res.timeStat = calcHour(res.timeStat)
-            if (res.month === '13') {
+            if (res.month == 13) {
                 return genLineStr(res, true)
             }
             return genLineStr(res)

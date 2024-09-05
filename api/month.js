@@ -101,6 +101,11 @@ export default function handler(vercelReq, vercelRes) {
             return genLineStr(res)
         }).join('\n')
         summary = `
+<style>
+td {
+padding: 5px 10px
+}
+</style>
                 <div style="padding: 40px;">
                 <table>
                 ${summary}

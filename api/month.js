@@ -89,13 +89,11 @@ export default function handler(vercelReq, vercelRes) {
         }
         const genLineStr = (res, total = false) => {
             if (total) {
-                return `<p>总的，${res.courseStat}节，时长${res.timeStat}</p>`
+                return `<tr><td>总</td><td>${res.courseStat}节</td><td>时长${res.timeStat}</td></tr>`
             }
-            return `<p>${res.month}月，${res.courseStat}节，时长${res.timeStat}</p>`
+            return `<tr><td>${res.month}月</td><td>${res.courseStat}节</td><td>时长${res.timeStat}</td></tr>`
         }
         let summary = resArray.map(res => {
-            res.month = res.month.toString().padStart(2, '0')
-            res.courseStat = res.courseStat.toString().padStart(2, '&nbsp;')
             res.timeStat = calcHour(res.timeStat)
             if (res.month === '13') {
                 return genLineStr(res, true)
@@ -104,7 +102,9 @@ export default function handler(vercelReq, vercelRes) {
         }).join('\n')
         summary = `
                 <div style="padding: 40px;">
+                <table>
                 ${summary}
+                </table>
                 </div>
                 <script>
                 const meta = document.createElement('meta')

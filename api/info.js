@@ -115,7 +115,7 @@ function getCard() {
     })
 }
 
-export default function handler(req, res) {
+export default function handler(vercelReq, vercelRes) {
     getCard().then((res) => {
         const card = res.cards.find(c => c.servcardId === "00973786020767428608")
         getInfo(card)

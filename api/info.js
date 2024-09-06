@@ -51,7 +51,7 @@ function getInfo(card, vercelRes) {
             <p>有效期：${card.expireTimeStr}，共${diff}天</p>
             <p>已生效：${activateDiff} 天，还剩余：${expireDiff} 天</p>
             <p>预定：${reserve} 课次，取消：${cancel} 课次</p>
-            <p>实际使用：${reserve - cancel} 课次</p>
+            <p style="color: red">实际使用：${reserve - cancel} 课次</p>
             <p>课次单价：${Math.round((5980 / (reserve - cancel)) * 100) / 100}元</p>
             </div>
             <script>
